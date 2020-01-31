@@ -7,6 +7,10 @@ set -eou pipefail
 CHANNEL=${CHANNEL:-pytorch-nightly}
 PKG=${PKG:-pytorch}
 
+# TODO: Refactor this to cover all platforms we currently support
+#       * osx-64
+#       * linux-64
+#       * win-64
 # Will grab all versions except for the latest one,
 versions_to_prune=$(\
     conda search -c "${CHANNEL}" "${PKG}" | \
