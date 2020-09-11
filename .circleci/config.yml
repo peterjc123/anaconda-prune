@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: conda install anaconda-client
+          command: conda install -y anaconda-client
       - run:
           command: PLATFORMS=win-64 sh ./prune.sh 
           name: Prune
