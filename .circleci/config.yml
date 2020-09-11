@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  prune:
+    docker:
+      - image: continuumio/miniconda
+    steps:
+      - checkout
+      - run:
+          command: conda install anaconda-client
+      - run:
+          command: PLATFORMS=win-64 sh ./prune.sh 
+          name: Prune
+
+workflows:
+  main:
+    jobs:
+      - prune
