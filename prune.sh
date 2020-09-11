@@ -30,7 +30,6 @@ grab_specs_for_version() {
 # TODO: Write this in a proper programming language
 
 set -eou pipefail
-set -x
 
 CHANNEL=${CHANNEL:-pytorch-nightly}
 PKG=${PKG:-pytorch}
@@ -46,7 +45,7 @@ for platform in ${PLATFORMS}; do
 	    # If this spec is included in specs_in_latest_version, then remove it.
 	    if [[ "${specs_in_latest_version}" =~ "${spec}" ]];then
 		(
-		    anaconda remove --force ${CHANNEL}/${PKG}/${version}/${platform}/${PKG}-${version}-${spec}.tar.bz2
+		    echo anaconda remove --force ${CHANNEL}/${PKG}/${version}/${platform}/${PKG}-${version}-${spec}.tar.bz2
 		)
 	    fi
         done
