@@ -9,7 +9,7 @@ jobs:
       - run:
           command: conda install -y anaconda-client
       - run:
-          command: PLATFORMS=win-64 bash ./prune.sh 
+          command: PLATFORMS=win-64 bash ./run.sh 
           name: Prune
 
 workflows:
